@@ -6,10 +6,12 @@ var assert = require('chai').assert;
 var isocfg = require('../lib/iso-config');
 
 describe('iso-config', function () {
-    describe('.addConfigs() should merge config into original one', function () {
-        isocfg.resetConfigs();
-        isocfg.addConfigs({a: 'b'});
-        assert.deepEqual(isocfg.getConfigs(), {a: 'b'});
+    describe('.addConfigs()', function () {
+        it('should merge config into original one', function () {
+            isocfg.resetConfigs();
+            isocfg.addConfigs({a: 'b'});
+            assert.deepEqual(isocfg.getConfigs(), {a: 'b'});
+        });
     });
 });
 /*
