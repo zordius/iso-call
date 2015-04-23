@@ -12,6 +12,14 @@ describe('iso-config', function () {
             isocfg.addConfigs({a: 'b'});
             assert.deepEqual(isocfg.getConfigs(), {a: 'b'});
         });
+        it('should merge config into previous one', function () {
+            isocfg.resetConfigs();
+            isocfg.addConfigs({a: 'b'});
+            isocfg.addConfigs({a: 'c'});
+            isocfg.addConfigs({b: 'd'});
+            assert.deepEqual(isocfg.getConfigs(), {a: 'c', b: 'd'});
+        });
+
     });
 });
 /*
