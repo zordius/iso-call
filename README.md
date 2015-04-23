@@ -12,7 +12,13 @@ npm install iso-call
 ```
 
 **Client**
-Use <a href="https://github.com/substack/node-browserify">browserify</a> to bundle your application and iso-call for browser
+
+Use <a href="https://github.com/substack/node-browserify">browserify</a> to bundle your application and iso-call for browser. You may also use <a href="https://github.com/benbria/aliasify">aliasify</a> to do more tricks:
+* hide api end points from users
+* handle server side only logic
+* handle client side only logic
+* reduce bundle size
+(TODO: add examples for these use case)
 
 Usage
 -----
