@@ -1,0 +1,59 @@
+{
+  "name": "iso-call",
+  "version": "0.0.1",
+  "description": "Isomorphic api call for any nodejs/express application",
+  "author": "Zordius <zordius@yahoo-inc.com>",
+  "contributors": [
+    {
+      "name": "Zordius Chen",
+      "email": "zordius@gmail.com"
+    }
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/zordius/iso-call.git"
+  },
+  "keywords": [
+    "isomorphic",
+    "client",
+    "server",
+    "request",
+    "http",
+    "express",
+    "middleware",
+    "gulp"
+  ],
+  "scripts": {
+    "test": "mocha",
+    "coverage": "istanbul cover -- _mocha",
+    "lint": "gulp jscs;jshint"
+  },
+  "main": "index.js",
+  "dependencies": {
+    "request": "2.55.0"
+  },
+  "devDependencies": {
+    "browser-request": "0.3.3",
+    "bluebird": "2.9.24",
+    "object.assign": "2.0.1",
+    "gulp": "3.8.11",
+    "gulp-jscs": "1.6.0",
+    "chai": "2.2.0",
+    "istanbul": "0.3.13",
+    "jshint": "2.7.0",
+    "mocha": "2.2.4",
+    "sinon": "1.14.1"
+  },
+  "engines": {
+    "node": ">=0.10.0"
+  },
+  "bugs": {
+    "url": "https://github.com/zordius/iso-call/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/zordius/iso-call/blob/master/LICENSE.txt"
+    }
+  ]
+}
