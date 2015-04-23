@@ -26,16 +26,16 @@ Usage
 
 **1. Enable Promise**
 
-You should enable Promise before using `iso-call` in your application for both server and client.
+You should enable Promise and Object.assign() before using `iso-call` in your application for both server and client.
 
 ```javascript
-// Use babel or any promise lib to provide required Promise
 // A. BABEL way: Init ES6 environments for require()
 require('babel/register')({
     extensions: ['.jsx']
 });
 
-// B. es6-promise way: auto polyfill Promise for all modules
+// B. polyfill way: auto polyfill Promise and Object.assign()
+require('object.assign').shim();
 require('es6-promise').polyfill();
 ```
 
