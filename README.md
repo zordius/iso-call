@@ -41,7 +41,7 @@ require('es6-promise').polyfill();
 
 **2. Setup your API**
 
-You should setup all your API or RPC list for server.
+You should setup all your API or RPC list only for server.
 
 ```javascript
 isocall = require('iso-call');
@@ -61,7 +61,7 @@ isocall.addConfigs({
 
 **3. Setup middleware**
 
-You should setup middleware for express at server side to wrap client side `iso-call`.
+You should setup middleware for express only at server side to wrap client side `iso-call`.
 
 ```javascript
 var express = require('express');
