@@ -12,6 +12,7 @@ describe('iso-config', function () {
             isocfg.addConfigs({a: 'b'});
             assert.deepEqual(isocfg.getConfigs(), {a: 'b'});
         });
+
         it('should merge config into previous one', function () {
             isocfg.resetConfigs();
             isocfg.addConfigs({a: 'b'});
@@ -19,25 +20,23 @@ describe('iso-config', function () {
             isocfg.addConfigs({b: 'd'});
             assert.deepEqual(isocfg.getConfigs(), {a: 'c', b: 'd'});
         });
+    });
 
+    it('.resetConfigs() should clean configs', function () {
+        isocfg.resetConfigs();
+        assert.deepEqual(isocfg.getConfigs(), {});
+        isocfg.addConfigs({b: 'd'});
+        assert.deepEqual(isocfg.getConfigs(), {b: 'd'});
+        isocfg.resetConfigs();
+        assert.deepEqual(isocfg.getConfigs(), {});
+    });
+
+    it('.getBaseURL() should return baseURL', function () {
+        assert.deepEqual(isocfg.getBaseURL(), '/_isoreq_/');
+    });
+
+    it('.setBaseURL() should return baseURL', function () {
+        isocfg.setBaseURL('/_lalala_/');
+        assert.deepEqual(isocfg.getBaseURL(), '/_lalala_/');
     });
 });
-/*
-module.exports = {
-    resetConfigs: function () {
-        requestConfigs = {};
-    },
-    addConfigs: function (cfgs) {
-        Object.assign(requestConfigs, cfgs);
-    },
-    getConfigs: function () {
-        return requestConfigs;
-    },
-    setBaseURL: function (url) {
-        requestBaseUrl = url;
-    },
-    getBaseURL: function () {
-        return requestBaseUrl;
-    }
-};
-*/
