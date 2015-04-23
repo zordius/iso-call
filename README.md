@@ -64,7 +64,7 @@ var app = express();
 isocall.setupMiddleware(app);
 ```
 
-**4. Request!**
+**4. Make request!**
 
 Now you can make isomorphic http request!
 
