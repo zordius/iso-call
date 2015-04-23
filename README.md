@@ -41,15 +41,21 @@ require('es6-promise').polyfill();
 
 **2. Setup your API**
 
-You should setup all your API {name: endpoint} list for server.
+You should setup all your API or RPC list for server.
 
 ```javascript
 isocall = require('iso-call');
 
-// Setup your API lists
+// Setup your API or RPC
 isocall.addConfigs({
+    // API as {name: endpoint} list
     yql: 'http://https://query.yahooapis.com/v1/public/yql',
-    graph: 'https://graph.facebook.com/v2.3/641060562'
+    graph: 'https://graph.facebook.com/v2.3/641060562',
+
+    // RPC as {name: function} list
+    connectdb: function (params) {
+        return mysqlPromise(params.host, params.port);
+    }
 });
 ```
 
@@ -64,9 +70,20 @@ var app = express();
 isocall.setupMiddleware(app);
 ```
 
-**4. Make request!**
+**4. Call API or RPC!**
 
-Now you can make isomorphic http request!
+Now you can do Remote Procedure Call!
+
+```javascript
+// Works on both client and server side!
+isocall.execute('rpcName', rpcParams).then(function (R) {
+    // Success, R = result
+}).catch(function (E) {
+    // Failed , E = error
+});
+```
+
+Or make isomorphic http request!
 
 ```javascript
 // Works on both client and server side!
