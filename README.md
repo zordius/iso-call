@@ -1,7 +1,7 @@
 iso-call
 ========
 
-Isomorphic api call as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> for any nodejs/express application.
+Isomorphic call API or RPC as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> for any nodejs/express application.
 
 Installation
 ------------
