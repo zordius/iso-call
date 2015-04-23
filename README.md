@@ -18,6 +18,7 @@ Use <a href="https://github.com/substack/node-browserify">browserify</a> to bund
 * handle server side only logic
 * handle client side only logic
 * reduce bundle size
+
 (TODO: add examples for these use case)
 
 Usage
