@@ -4,7 +4,7 @@ var isoexe = require('../lib/iso-execute-client');
 var isocall = require('../');
 
 var baseHOST = 'http://t.e.s.t';
-var baseURL = baseHOST + '/test/';
+var baseURL = baseHOST + '/';
 
 describe('iso-execute-client', function () {
     before(function () {
@@ -27,11 +27,12 @@ describe('iso-execute-client', function () {
             assert.equal(E.message, 'iso-execute-client without name!');
         }).then(done.bind(), done);
     });
-    it.skip('will make PUT request to baseURL', function (done) {
-        nock(baseHOST).persist().get('/').reply(200, 'OK!');
+
+    it('will make PUT request to baseURL', function (done) {
+        nock(baseHOST).persist().put('/test').reply(200, {msg: 'OK!'});
 
         isoexe.execute('test').then(function (R) {
-             console.log(R);
+            console.log(R);
         }).then(done.bind(), done);
     });
 });
