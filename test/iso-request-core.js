@@ -9,4 +9,10 @@ describe('iso-request-core', function () {
             assert.equal(E.message, 'iso-request-core without input!');
         }).then(done.bind(), done);
     });
+
+    it('should return rejected Promise when no input.url', function (done) {
+        isoreq({})['catch'](function (E) {
+            assert.equal(E.message, 'iso-request-core without url, input:{}');
+        }).then(done.bind(), done);
+    });
 });
