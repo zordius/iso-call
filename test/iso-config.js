@@ -8,13 +8,13 @@ var isocfg = require('../lib/iso-config');
 describe('iso-config', function () {
     describe('.addConfigs()', function () {
         it('should merge config into original one', function () {
-            isocfg.resetConfigs();
+            isocfg.resetConfigs(true);
             isocfg.addConfigs({a: 'b'});
             assert.deepEqual(isocfg.getConfigs(), {a: 'b'});
         });
 
         it('should merge config into previous one', function () {
-            isocfg.resetConfigs();
+            isocfg.resetConfigs(true);
             isocfg.addConfigs({a: 'b'});
             isocfg.addConfigs({a: 'c'});
             isocfg.addConfigs({b: 'd'});
@@ -22,12 +22,12 @@ describe('iso-config', function () {
         });
     });
 
-    it('.resetConfigs() should clean configs', function () {
-        isocfg.resetConfigs();
+    it('.resetConfigs() should clean configs with default request', function () {
+        isocfg.resetConfigs(true);
         assert.deepEqual(isocfg.getConfigs(), {});
         isocfg.addConfigs({b: 'd'});
         assert.deepEqual(isocfg.getConfigs(), {b: 'd'});
-        isocfg.resetConfigs();
+        isocfg.resetConfigs(true);
         assert.deepEqual(isocfg.getConfigs(), {});
     });
 
