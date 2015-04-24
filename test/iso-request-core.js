@@ -1,5 +1,4 @@
 var assert = require('chai').assert;
-var sinon = require('sinon');
 var isoreq = require('../lib/iso-request-core');
 var nock = require('nock');
 
