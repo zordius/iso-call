@@ -74,7 +74,7 @@ isocall.setupMiddleware(app);
 
 **4. Call API or RPC!**
 
-Now you can do Remote Procedure Call!
+Now you can do isomprphic RPC!!
 
 ```javascript
 // Works on both client and server side!
@@ -85,7 +85,7 @@ isocall.execute('rpcName', rpcParams).then(function (R) {
 });
 ```
 
-Or make isomorphic http request!
+Or make isomorphic http request!!
 
 ```javascript
 // Works on both client and server side!
