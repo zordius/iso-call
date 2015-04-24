@@ -96,5 +96,22 @@ describe('iso-execute-server', function () {
 
             getMiddleware()(req, res);
         });
+        it('will run execute() with route name and request body', function (done) {
+            var req = {
+                params: {name: 'test'}
+            };
+            var res = {
+                send: function (body) {
+                    assert.equal(body, 'BODY!');
+                }
+            }
+
+            isocall.addConfigs({
+                test: function () {
+                    return 'BODY!';
+                }
+            });
+
+            getMiddleware()(req, res);
     });
 });
