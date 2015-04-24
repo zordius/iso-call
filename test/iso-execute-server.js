@@ -28,6 +28,24 @@ describe('iso-execute-server', function () {
                 assert.equal(E.message, 'iso-execute-server.execute but no config for the service: not found');
             }).then(done.bind(), done);
         });
+        it('will return rejected Promise when it is not executable', function (done) {
+            isocall.addConfigs({
+                test_rpc: 'string_is_not_function'
+            });
+
+            isoexe.execute('test_rpc')['catch'](function (E) {
+                assert.equal(E.message, 'iso-execute-server can not execute the service: test_rpc');
+            }).then(done.bind(), done);
+        });
+        it('will return resolved Promise when execute correctly', function (done) {
+            isocall.addConfigs({
+                test_rpc: function () {return 'OK!'}
+            });
+
+            isoexe.execute('test_rpc').then(function (R) {
+                assert.equal(R, 'OK!');
+            }).then(done.bind(), done);
+        });
     });
 
     describe('.setupMiddleware()', function () {
