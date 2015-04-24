@@ -103,6 +103,7 @@ describe('iso-execute-server', function () {
             var res = {
                 send: function (body) {
                     assert.equal(body, 'BODY!');
+                    done();
                 }
             }
 
@@ -113,5 +114,6 @@ describe('iso-execute-server', function () {
             });
 
             getMiddleware()(req, res);
+        });
     });
 });
