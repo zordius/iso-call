@@ -50,4 +50,12 @@ describe('iso-request-core', function () {
             assert.deepEqual(R.body, {foo: 'bar!'});
         }).then(done.bind(), done);
     });
+
+    it('should return rejected Promise when http status code 500', function (done) {
+        nock('http://abc').persist().get('/').replyWithError('internal error');
+
+        isoreq({url: 'http://abc/'})['catch'](function (E) {
+            assert.deepEqual(E.error.message, 'internal error');
+        }).then(done.bind(), done);
+    });
 });
