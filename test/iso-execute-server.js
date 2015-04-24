@@ -18,6 +18,11 @@ describe('iso-execute-server', function () {
     afterEach(cleanUp);
     
     describe('.execute()', function () {
+        it('will return rejected Promise when no input name', function (done) {
+            isoexe.execute()['catch'](function (E) {
+                assert.equal(E.message, 'iso-request-server.execute without name!');
+            }).then(done.bind(), done);
+        });
     });
     describe('.setupMiddleware()', function () {
         it('will setup app with correct route url', function () {
