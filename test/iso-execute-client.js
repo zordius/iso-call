@@ -1,15 +1,26 @@
 var assert = require('chai').assert;
-var sinon = require('sinon');
+var nock = require('nock');
 var isoexe = require('../lib/iso-execute-client');
 var isocall = require('../');
 
-var cleanUp = function () {
-    isocall.resetConfigs();
-};
+var baseHOST = 'http://t.e.s.t';
+var baseURL = baseHOST + '/test/';
 
 describe('iso-execute-client', function () {
-    beforeEach(cleanUp);
-    afterEach(cleanUp);
+    before(function () {
+        isocall.setBaseURL(baseURL);
+        nock.disableNetConnect();
+    });
+
+    after(function () {
+        isocall.resetBaseURL();
+        nock.enableNetConnect();
+    });
+
+    afterEach(function () {
+        nock.cleanAll();
+    });
+
     
     it('will return rejected Promise when no input name', function (done) {
         isoexe.execute()['catch'](function (E) {
@@ -17,7 +28,10 @@ describe('iso-execute-client', function () {
         }).then(done.bind(), done);
     });
     it.skip('will make PUT request to baseURL', function (done) {
-        isoexe.execute('not found')['catch'](function (E) {
+        nock(baseHOST).persist().get('/').reply(200, 'OK!');
+
+        isoexe.execute('test').then(function (R) {
+             console.log(R);
         }).then(done.bind(), done);
     });
 });
