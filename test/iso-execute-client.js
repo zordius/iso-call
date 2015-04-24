@@ -21,7 +21,6 @@ describe('iso-execute-client', function () {
         nock.cleanAll();
     });
 
-    
     it('will return rejected Promise when no input name', function (done) {
         isoexe.execute()['catch'](function (E) {
             assert.equal(E.message, 'iso-execute-client without name!');
