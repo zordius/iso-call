@@ -15,7 +15,7 @@ var getMiddleware = function () {
         }
     });
     return middleware;
-}
+};
 
 describe('iso-execute-server', function () {
     beforeEach(cleanUp);
@@ -85,7 +85,7 @@ describe('iso-execute-server', function () {
             };
             var res = {
                 send: function () {}
-            }
+            };
 
             isocall.addConfigs({
                 test: function (body) {
@@ -96,7 +96,7 @@ describe('iso-execute-server', function () {
 
             getMiddleware()(req, res);
         });
-        it('will run execute() with route name and request body', function (done) {
+        it('will res.send() execute() result', function (done) {
             var req = {
                 params: {name: 'test'}
             };
@@ -105,11 +105,32 @@ describe('iso-execute-server', function () {
                     assert.equal(body, 'BODY!');
                     done();
                 }
-            }
+            };
 
             isocall.addConfigs({
                 test: function () {
                     return 'BODY!';
+                }
+            });
+
+            getMiddleware()(req, res);
+        });
+        it('will res.status(500) when execute() error', function (done) {
+            var req = {
+                params: {name: 'test'}
+            };
+            var res = {
+                status: function (code) {
+                    assert.equal(code, 500);
+                    done();
+                    return res;
+                },
+                send: function () {}
+            };
+
+            isocall.addConfigs({
+                test: function () {
+                    throw {message: 'Error!', stack: 'ignore this: console.warn(E.stack)'};
                 }
             });
 
