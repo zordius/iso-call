@@ -34,6 +34,7 @@
   },
   "devDependencies": {
     "browser-request": "0.3.3",
+    "body-parser": "1.12.3",
     "babel": "5.1.11",
     "bluebird": "2.9.24",
     "gulp": "3.8.11",

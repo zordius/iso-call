@@ -32,7 +32,6 @@ describe('iso-config', function () {
             isocfg.resetConfigs(true);
             assert.deepEqual(isocfg.getConfigs(), {});
             isocfg.resetConfigs();
-            console.log(isocfg);
             assert.equal(typeof isocfg.getConfigs()[isocfg._DEFAULT_ISO_REQUEST_RPC_], 'function');
         });
     });
