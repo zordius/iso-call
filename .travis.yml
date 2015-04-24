@@ -6,7 +6,8 @@ node_js:
   - 'iojs'
 script:
   - npm run lint
-  - npm test
+  - npm run coverage
+  - ./travis.sh
 cache:
   directories:
     - node_modules
