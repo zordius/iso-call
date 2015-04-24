@@ -20,10 +20,16 @@ describe('iso-execute-server', function () {
     describe('.execute()', function () {
         it('will return rejected Promise when no input name', function (done) {
             isoexe.execute()['catch'](function (E) {
-                assert.equal(E.message, 'iso-request-server.execute without name!');
+                assert.equal(E.message, 'iso-execute-server.execute without name!');
+            }).then(done.bind(), done);
+        });
+        it('will return rejected Promise when no config found', function (done) {
+            isoexe.execute('not found')['catch'](function (E) {
+                assert.equal(E.message, 'iso-execute-server.execute but no config for the service: not found');
             }).then(done.bind(), done);
         });
     });
+
     describe('.setupMiddleware()', function () {
         it('will setup app with correct route url', function () {
             var app = getMockApp();
