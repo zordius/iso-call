@@ -1,7 +1,7 @@
 var assert = require('chai').assert;
 var sinon = require('sinon');
 var isoexe = require('../lib/iso-execute-server');
-var isocall = require('../lib/isocall');
+var isocall = require('../');
 
 var cleanUp = function () {
     isocall.resetConfigs();
