@@ -32,7 +32,7 @@ describe('iso-execute-client', function () {
         nock(baseHOST).persist().put('/test').reply(200, {msg: 'OK!'});
 
         isoexe.execute('test').then(function (R) {
-            console.log(R);
+            assert.deepEqual(R, {msg: 'OK!'});
         }).then(done.bind(), done);
     });
 });
