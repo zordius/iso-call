@@ -1,8 +1,4 @@
-var mocha = require('mocha');
-var describe = mocha.describe;
-var it = mocha.it;
 var assert = require('chai').assert;
-
 var isocfg = require('../lib/iso-config');
 
 describe('iso-config', function () {

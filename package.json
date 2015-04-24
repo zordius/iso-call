@@ -26,7 +26,7 @@
   "scripts": {
     "test": "mocha",
     "coverage": "istanbul cover -- _mocha",
-    "lint": "gulp jscs;jshint"
+    "lint": "gulp jscs;jshint ."
   },
   "main": "index.js",
   "dependencies": {
