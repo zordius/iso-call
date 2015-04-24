@@ -3,7 +3,7 @@ iso-call
 
 Isomorphic call API or RPC as <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise">Promise</a> for any nodejs/express application.
 
-[![Build Status](https://travis-ci.org/zordius/iso-call.svg?branch=master)](https://travis-ci.org/zordius/iso-call)
+[![Build Status](https://travis-ci.org/zordius/iso-call.svg?branch=master)](https://travis-ci.org/zordius/iso-call) [![Test Coverage](https://codeclimate.com/github/zordius/iso-call/badges/coverage.svg)](https://codeclimate.com/github/zordius/iso-call) [![Code Climate](https://codeclimate.com/github/zordius/iso-call/badges/gpa.svg)](https://codeclimate.com/github/zordius/iso-call) [![License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE.txt)
 
 Installation
 ------------
