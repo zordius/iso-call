@@ -22,13 +22,23 @@ describe('iso-config', function () {
         });
     });
 
-    it('.resetConfigs() should clean configs with default request', function () {
-        isocfg.resetConfigs(true);
-        assert.deepEqual(isocfg.getConfigs(), {});
-        isocfg.addConfigs({b: 'd'});
-        assert.deepEqual(isocfg.getConfigs(), {b: 'd'});
-        isocfg.resetConfigs(true);
-        assert.deepEqual(isocfg.getConfigs(), {});
+    describe('.resetConfigs()', function () {
+        it('should clean configs when input true', function () {
+            isocfg.resetConfigs(true);
+            assert.deepEqual(isocfg.getConfigs(), {});
+            isocfg.addConfigs({b: 'd'});
+            assert.deepEqual(isocfg.getConfigs(), {b: 'd'});
+            isocfg.resetConfigs(true);
+            assert.deepEqual(isocfg.getConfigs(), {});
+        });
+
+        it('should keep default iso-request RPC config when no input', function () {
+            isocfg.resetConfigs(true);
+            assert.deepEqual(isocfg.getConfigs(), {});
+            isocfg.resetConfigs();
+            console.log(isocfg);
+            assert.equal(typeof isocfg.getConfigs()[isocfg._DEFAULT_ISO_REQUEST_RPC_], 'function');
+        });
     });
 
     it('.getBaseURL() should return baseURL', function () {
