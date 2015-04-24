@@ -39,11 +39,24 @@ describe('iso-execute-server', function () {
         });
         it('will return resolved Promise when execute correctly', function (done) {
             isocall.addConfigs({
-                test_rpc: function () {return 'OK!'}
+                test_rpc: function () {
+                    return 'OK!';
+                }
             });
 
             isoexe.execute('test_rpc').then(function (R) {
                 assert.equal(R, 'OK!');
+            }).then(done.bind(), done);
+        });
+        it('will return rejected Promise when execute error', function (done) {
+            isocall.addConfigs({
+                test_rpc: function () {
+                    throw 'internal error';
+                }
+            });
+
+            isoexe.execute('test_rpc')['catch'](function (E) {
+                assert.equal(E, 'internal error');
             }).then(done.bind(), done);
         });
     });
