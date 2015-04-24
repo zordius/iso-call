@@ -20,10 +20,11 @@ describe('iso-execute-server', function () {
     describe('.execute()', function () {
     });
     describe('.setupMiddleware()', function () {
-        it('will setup app with default route', function () {
+        it('will setup app with correct route url', function () {
             var app = getMockApp();
+            isocall.setBaseURL('haha');
             isoexe.setupMiddleware(app);
-            assert.equal(app.put.getCalls(0).args[0], 'lala');
+            assert.equal(app.put.getCall(0).args[0], 'haha:name');
         });
     });
 });
