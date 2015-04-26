@@ -32,9 +32,7 @@ You should enable Promise and Object.assign() before using `iso-call` in your ap
 
 ```javascript
 // A. BABEL way: Init ES6 environments for require()
-require('babel/register')({
-    extensions: ['.jsx']
-});
+require('babel/register')();
 
 // B. polyfill way: auto polyfill Promise and Object.assign()
 require('object.assign').shim();
@@ -95,3 +93,8 @@ isocall.request('apiName', requestParams).then(function (R) {
     // Failed , R = {error: ... , response: ... , body: ...}
 });
 ```
+
+Use Case: isomorphic http request
+---------------------------------
+
+
