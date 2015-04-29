@@ -10,6 +10,7 @@ module.exports = function (req, res) {
  </head>
 <body>
 OK! :D
+<script src="/js/yqlconsole.js"></script>
 </body>
 </html>
 `);
