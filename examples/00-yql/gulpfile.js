@@ -1,14 +1,20 @@
 var gulp = require('gulp');
 var gutil = require('gulp-util');
 var nodemon = require('nodemon');
-var babelify = require('babelify');
-var browserify = require('browserify');
 
 var restart_nodemon = function () {
     setTimeout(function () {
         nodemon.emit('restart');
     }, 200);
 };
+
+gulp.task('watch_js', function () {
+    gulp.watch('server.js', 'yql.js', 'yalconsle.js', ['restart_nodemon']);
+});
+
+gulp.task('restart_nodemon', function () {
+    restart_nodemon();
+});
 
 gulp.task('nodemon_server', ['buildall'], function () {
     nodemon({
@@ -19,6 +25,7 @@ gulp.task('nodemon_server', ['buildall'], function () {
         gutil.log(log.colour);
     });
 });
+
 
 gulp.task('develop', ['nodemon_server']);
 gulp.task('lint_all', ['lint_server', 'lint_js']);

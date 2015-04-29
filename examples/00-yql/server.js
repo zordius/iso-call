@@ -5,6 +5,7 @@ require('babel/register')();
 
 var express = require('express');
 var isocall = require('isocall');
+var browserify = require('browserify-middleware');
 var app = express();
 
 // Setup yql iso-call
@@ -17,10 +18,11 @@ isocall.setupMiddleware(app);
 app.use('/', require('./page'));
 
 // Serve the bundled app
+// aliasify is required transform to ensure iso-call work properly
 app.use('/js/yqlconsole.js', browserify('./app', {
-    tramsform: ['babelify'],
+    tramsform: ['aliasify'],
     standalone: 'YQLConsle'
-});
+}));
 
 app.listen(3000);
 console.log('Express server started at port 3000');
