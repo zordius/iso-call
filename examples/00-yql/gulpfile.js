@@ -5,7 +5,7 @@ var nodemon = require('nodemon');
 // Start nodemon server
 gulp.task('nodemon_server', function () {
     nodemon({
-        script: 'server.js',
+        script: 'server.js'
     }).on('log', function (log) {
         gutil.log(log.colour);
     });

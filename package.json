@@ -69,11 +69,14 @@
   ],
   "eslintConfig": {
     "env": {
+      "node": true,
       "mocha": true
     },
     "parser": "babel-eslint",
     "rules": {
+      "yoda": "always",
       "strict": 0,
+      "dot-notation": [{"allowKeywords": false}],
       "quotes": ["single"]
     }
   }

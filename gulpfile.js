@@ -5,3 +5,4 @@ gulp.task('jscs', function () {
     gulp.src(['index.js', 'gulpfile.js', 'lib/*.js'])
     .pipe(jscs());
 });
+

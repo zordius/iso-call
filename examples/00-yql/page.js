@@ -1,6 +1,7 @@
 var app = require('./app');
 
 module.exports = function (req, res) {
+    app();
     res.send(`
 <!DOCTYPE html>
 <html>

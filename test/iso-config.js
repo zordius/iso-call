@@ -32,7 +32,9 @@ describe('iso-config', function () {
             isocfg.resetConfigs(true);
             assert.deepEqual(isocfg.getConfigs(), {});
             isocfg.resetConfigs();
+            /* eslint-disable no-underscore-dangle */
             assert.equal(typeof isocfg.getConfigs()[isocfg._DEFAULT_ISO_REQUEST_RPC_], 'function');
+            /* eslint-enable no-underscore-dangle */
         });
     });
 

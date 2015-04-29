@@ -20,7 +20,7 @@ var getMiddleware = function () {
 describe('iso-execute-server', function () {
     beforeEach(cleanUp);
     afterEach(cleanUp);
-    
+
     describe('.execute()', function () {
         it('will return rejected Promise when no input name', function (done) {
             isoexe.execute()['catch'](function (E) {
@@ -34,32 +34,32 @@ describe('iso-execute-server', function () {
         });
         it('will return rejected Promise when it is not executable', function (done) {
             isocall.addConfigs({
-                test_rpc: 'string_is_not_function'
+                testRpc: 'string_is_not_function'
             });
 
-            isoexe.execute('test_rpc')['catch'](function (E) {
-                assert.equal(E.message, 'iso-execute-server can not execute the service: test_rpc');
+            isoexe.execute('testRpc')['catch'](function (E) {
+                assert.equal(E.message, 'iso-execute-server can not execute the service: testRpc');
             }).then(done.bind(), done);
         });
         it('will return resolved Promise when execute correctly', function (done) {
             isocall.addConfigs({
-                test_rpc: function () {
+                testRpc: function () {
                     return 'OK!';
                 }
             });
 
-            isoexe.execute('test_rpc').then(function (R) {
+            isoexe.execute('testRpc').then(function (R) {
                 assert.equal(R, 'OK!');
             }).then(done.bind(), done);
         });
         it('will return rejected Promise when execute error', function (done) {
             isocall.addConfigs({
-                test_rpc: function () {
+                testRpc: function () {
                     throw 'internal error';
                 }
             });
 
-            isoexe.execute('test_rpc')['catch'](function (E) {
+            isoexe.execute('testRpc')['catch'](function (E) {
                 assert.equal(E, 'internal error');
             }).then(done.bind(), done);
         });

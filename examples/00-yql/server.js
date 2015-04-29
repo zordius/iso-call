@@ -1,5 +1,3 @@
-'use strict';                                                                                    
-
 // Init ES6 environments for .require()
 require('babel/register')();
 
