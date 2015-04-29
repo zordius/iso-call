@@ -6,7 +6,7 @@ module.exports = function (req, res) {
 <!DOCTYPE html>
 <html>
  <head>
-  <title>YQL Console DEMO</title>
+  <title>SHELL Console DEMO</title>
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
  </head>
 <style>
@@ -15,7 +15,7 @@ input[type="submit"] {width:10%}
 textarea {width: 100%;height:400px}
 </style>
 <body>
-Welcome to the YQL Console!
+Welcome to the SHELL Console!
 ${consoleHTML}
 <script src="/js/CMDConsole.js"></script>
 </body>
