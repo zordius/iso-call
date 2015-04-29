@@ -21,7 +21,7 @@
     "http",
     "express",
     "middleware",
-    "gulp"
+    "RPC"
   ],
   "scripts": {
     "test": "mocha",
