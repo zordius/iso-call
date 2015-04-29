@@ -108,7 +108,12 @@ isocall.request('apiName', requestParams).then(function (R) {
 });
 ```
 
+Use Case: isomorphic RPC
+------------------------
+
+Check our <a href="examples/01-shell">shell example</a> to know more about isocall.execute().
+
 Use Case: isomorphic http request
 ---------------------------------
 
-Check our <a href="examples/00-yql">YQL example</a> to know more about isocall.request().
+Check our <a href="examples/02-yql">YQL example</a> to know more about isocall.request().
