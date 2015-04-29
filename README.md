@@ -26,6 +26,22 @@ Use <a href="https://github.com/substack/node-browserify">browserify</a> to bund
 Usage
 -----
 
+**Requirement**
+
+You should use browserify + aliasify to bundle client side JavaScript:
+
+```sh
+npm install browserify aliasify --save-dev
+```
+
+Add these into your `package.json` to enable aliasify:
+
+```json
+  "browserify": {
+    "transform": ["aliasify"]
+  }
+```
+
 **1. Enable Required ES Features**
 
 You should enable Promise and Object.assign() before using `iso-call` in your application for both server and client.
