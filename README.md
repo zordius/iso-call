@@ -111,4 +111,4 @@ isocall.request('apiName', requestParams).then(function (R) {
 Use Case: isomorphic http request
 ---------------------------------
 
-
+Check our <a href="examples/00-yql">YQL example</a> to know more about isocall.request().
