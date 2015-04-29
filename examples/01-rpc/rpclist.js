@@ -8,11 +8,11 @@ isocall.addConfigs({
     },
     du: function () {
         return new Promise(function (resolve, reject) {
-            require('child_process').exec('du -h', function (E, stdout, stderr) {
+            require('child_process').exec('du -h', function (E, stdout) {
                 if (E) {
                     return reject(E);
                 }
-                resolve(stdout);
+                resolve(stdout + stderr);
             });
         });
     }
