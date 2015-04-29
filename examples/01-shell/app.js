@@ -23,13 +23,13 @@ ${R}
 
 module.exports = {
     get: function (Q) {
-        return isocall(Q).then(template, template);
+        return isocall.execute(Q, {}).then(template, template);
     },
     getInner: function (Q) {
-        return isocall(Q).then(inner, inner);
+        return isocall.execute(Q, {}).then(inner, inner);
     },
     renderInto: function (form) {
-        this.get(form.elements.query.value).then(function (H) {
+        this.get(form.elements.q.value).then(function (H) {
             form.innerHTML = H;
         });
     }
