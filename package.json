@@ -47,14 +47,10 @@
     "mocha": "2.2.4",
     "sinon": "1.14.1"
   },
-  "aliasify": {
-    "aliases": {
-      "./iso-request-server": "./iso-request-client.js",
-      "./iso-execute-server": "./iso-execute-client.js",
-      "request": "browser-request",
-      "iso-call/polyfill": "babelify/polyfill"
-    }
+  "browserify": {
+    "transform": ["aliasify"]
   },
+  "aliasify": "./.aliasifyConfig.js",
   "engines": {
     "node": ">=0.10.0"
   },
