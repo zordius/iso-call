@@ -6,8 +6,8 @@ var isocall = require('iso-call');
 var browserify = require('browserify-middleware');
 var app = express();
 
-// Setup yql iso-call
-require('./yql');
+// Setup rpc
+require('./rpclist');
 
 // Mount yql iso-call middleware to the express
 isocall.setupMiddleware(app);

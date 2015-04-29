@@ -1,6 +1,6 @@
 require('iso-call/polyfill');
 
-var isocall = require('isocall');
+var isocall = require('iso-call');
 
 var inner = function (D) {
     return `
