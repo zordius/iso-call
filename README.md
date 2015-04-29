@@ -15,7 +15,21 @@ npm install iso-call
 
 **Client**
 
-Use <a href="https://github.com/substack/node-browserify">browserify</a> to bundle your application and iso-call for browser. You may also use <a href="https://github.com/benbria/aliasify">aliasify</a> to do more tricks:
+Use <a href="https://github.com/substack/node-browserify">browserify</a> + <a href="https://github.com/benbria/aliasify">aliasify</a> to bundle your application and iso-call for browser:
+
+```sh
+npm install browserify aliasify --save-dev
+```
+Add these into your `package.json` to enable aliasify:
+
+```json
+  "browserify": {
+    "transform": ["aliasify"]
+  }
+```
+
+You may also use do more tricks with proper aliasify settings:
+
 * hide api end points from users
 * handle server side only logic
 * handle client side only logic
@@ -25,22 +39,6 @@ Use <a href="https://github.com/substack/node-browserify">browserify</a> to bund
 
 Usage
 -----
-
-**Requirement**
-
-You should use browserify + aliasify to bundle client side JavaScript:
-
-```sh
-npm install browserify aliasify --save-dev
-```
-
-Add these into your `package.json` to enable aliasify:
-
-```json
-  "browserify": {
-    "transform": ["aliasify"]
-  }
-```
 
 **1. Enable Required ES Features**
 
