@@ -33,7 +33,3 @@ module.exports = {
         });
     }
 };
-
-module.exports.render = function () {
-    
-}
