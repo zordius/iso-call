@@ -2,13 +2,21 @@ var isocall = require('iso-call');
 
 // Define yql api
 var yql = function (Q) {
-    console.log('request yql!');
-    return isocall.request('yql', Q);
+    return isocall.request('yql', {
+        qs: {
+            q: Q,
+            format: 'json',
+            diagnostics: 'true'
+        },
+        json: true,
+    }).catch(function (E) {
+        console.log(E);
+    });
 };
 
 // Define yql api endpoint
 isocall.addConfigs({
-    yql: 'http://https://query.yahooapis.com/v1/public/yql'
+    yql: 'https://query.yahooapis.com/v1/public/yql'
 });
 
 module.exports = yql;
