@@ -50,7 +50,8 @@
     "aliases": {
       "./iso-request-server": "./iso-request-client.js",
       "./iso-execute-server": "./iso-execute-client.js",
-      "request": "browser-request"
+      "request": "browser-request",
+      "iso-call/polyfill": "babelify/polyfill"
     }
   },
   "engines": {

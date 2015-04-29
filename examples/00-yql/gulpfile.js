@@ -9,14 +9,14 @@ var restart_nodemon = function () {
 };
 
 gulp.task('watch_js', function () {
-    gulp.watch('server.js', 'yql.js', 'yalconsle.js', ['restart_nodemon']);
+    gulp.watch(['server.js', 'yql.js', 'yalconsle.js'], ['restart_nodemon']);
 });
 
 gulp.task('restart_nodemon', function () {
     restart_nodemon();
 });
 
-gulp.task('nodemon_server', ['buildall'], function () {
+gulp.task('nodemon_server', function () {
     nodemon({
         ignore: '*',
         script: 'server.js',
@@ -26,8 +26,4 @@ gulp.task('nodemon_server', ['buildall'], function () {
     });
 });
 
-
-gulp.task('develop', ['nodemon_server']);
-gulp.task('lint_all', ['lint_server', 'lint_js']);
-gulp.task('buildall', ['lint_all', 'build_app']);
-gulp.task('default', ['buildall']);
+gulp.task('default', ['watch_js', 'nodemon_server']);

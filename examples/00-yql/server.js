@@ -4,12 +4,13 @@
 require('babel/register')();
 
 var express = require('express');
-var isocall = require('isocall');
+var isocall = require('iso-call');
 var browserify = require('browserify-middleware');
+var babelify = require('babelify');
 var app = express();
 
 // Setup yql iso-call
-require('yql');
+require('./yql');
 
 // Mount yql iso-call middleware to the express
 isocall.setupMiddleware(app);
@@ -19,8 +20,8 @@ app.use('/', require('./page'));
 
 // Serve the bundled app
 // aliasify is required transform to ensure iso-call work properly
-app.use('/js/yqlconsole.js', browserify('./app', {
-    tramsform: ['aliasify'],
+app.use('/js/yqlconsole.js', browserify('./app.js', {
+    tramsform: ['aliasify', babelify({optional: ['runtime']})],
     standalone: 'YQLConsle'
 }));
 

@@ -5,8 +5,7 @@
   "author": "Zordius <zordius@yahoo-inc.com>",
   "main": "server.js",
   "scripts": {
-    "build": "gulp",
-    "start": "gulp develop"
+    "start": "gulp"
   },
   "dependencies": {
     "iso-call": "*",
