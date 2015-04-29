@@ -1,3 +1,4 @@
+require('iso-call/polyfill');
 var yql = require('./yql');
 
 var inner = function (D) {
@@ -14,7 +15,7 @@ var inner = function (D) {
 var template = function (D) {
     var R = inner(D);
     return `
-<form onsubmit="YqlConsole.render(this);return false">
+<form onsubmit="YQLConsole.render(this);return false">
 ${R}
 </form>
 `;

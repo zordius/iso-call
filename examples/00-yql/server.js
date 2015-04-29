@@ -15,15 +15,16 @@ isocall.setupMiddleware(app);
 
 // Serve the bundled app
 // aliasify is required transform to ensure iso-call work properly
+// Add these in your package.json:
+/*
+  "browserify": {
+    "transform": [
+      "aliasify"
+    ]
+  }
+*/
 app.use('/js/yqlconsole.js', browserify('./app.js', {
-    /*
-    tramsform: [
-        //'aliasify',
-        ['aliasify', require('../../.aliasifyConfig')],
-        babelify({optional: ['runtime']})
-    ],
-    */
-    standalone: 'YQLConsle'
+    standalone: 'YQLConsole'
 }));
 
 // Serve the page
