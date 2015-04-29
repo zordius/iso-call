@@ -4,7 +4,6 @@ require('babel/register')();
 var express = require('express');
 var isocall = require('iso-call');
 var browserify = require('browserify-middleware');
-var babelify = require('babelify');
 var app = express();
 
 // Setup yql iso-call

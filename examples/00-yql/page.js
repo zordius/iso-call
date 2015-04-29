@@ -1,6 +1,6 @@
 var app = require('./app');
 
-module.exports = function (req, res, next) {
+module.exports = function (req, res) {
     app.get().then(function (consoleHTML) {
         res.send(`
 <!DOCTYPE html>
