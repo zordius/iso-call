@@ -21,7 +21,7 @@ app.use('/js/yqlconsole.js', browserify('./app.js', {
 }));
 
 // Serve the page
-app.use('/', require('./page'));
+app.use(require('./page'));
 
 app.listen(3000);
 console.log('Express server started at port 3000');
