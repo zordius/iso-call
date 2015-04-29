@@ -51,7 +51,7 @@
     "transform": ["aliasify"]
   },
   "aliasify": {
-    aliases: {
+    "aliases": {
       "./iso-request-server": "./lib/iso-request-client",
       "./iso-execute-server": "./lib/iso-execute-client",
       "request": "browser-request",
