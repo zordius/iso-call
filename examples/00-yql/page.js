@@ -1,7 +1,7 @@
 var app = require('./app');
 
 module.exports = function (req, res) {
-    app.get().then(function (consoleHTML) {
+    app.get(req.params.q).then(function (consoleHTML) {
         res.send(`
 <!DOCTYPE html>
 <html>

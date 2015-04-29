@@ -5,6 +5,7 @@ How to try this
 2. npm install
 3. npm start
 4. open http://localhost:3000/ with your browser
+5. type `show tables` then press TEST button
 
 How it works
 ------------

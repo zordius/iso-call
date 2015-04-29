@@ -4,7 +4,7 @@ var yql = require('./yql');
 var inner = function (D) {
     var json = JSON.stringify(D, undefined, '  ');
     return `
-<input type="text" name="query" value="" />
+<input type="text" name="q" value="" />
 <input type="submit" value="TEST" />
 <hr/>
 <h3>Result:</h3>
