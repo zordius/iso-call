@@ -1,8 +1,8 @@
 var app = require('./app');
 
 module.exports = function (req, res) {
-    app();
-    res.send(`
+    app.get().then(function (consoleHtml) {
+        res.send(`
 <!DOCTYPE html>
 <html>
  <head>
@@ -10,9 +10,11 @@ module.exports = function (req, res) {
   <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
  </head>
 <body>
-OK! :D
+Welcome to the YQL Console!
+${consoleHTML}
 <script src="/js/yqlconsole.js"></script>
 </body>
 </html>
 `);
+    });
 };

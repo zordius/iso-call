@@ -2,6 +2,7 @@ var isocall = require('iso-call');
 
 // Define yql api
 var yql = function (Q) {
+    console.log('request yql!');
     return isocall.request('yql', Q);
 };
 
