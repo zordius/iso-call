@@ -8,7 +8,9 @@ var yql = function (Q) {
             format: 'json',
             diagnostics: 'true'
         },
-        json: true,
+        json: true
+    }).then(function (R) {
+        return R.body;
     }).catch(function (E) {
         console.log(E);
     });

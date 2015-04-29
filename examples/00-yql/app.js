@@ -15,7 +15,7 @@ var inner = function (D) {
 var template = function (D) {
     var R = inner(D);
     return `
-<form onsubmit="YQLConsole.render(this);return false">
+<form onsubmit="YQLConsole.renderInto(this);return false">
 ${R}
 </form>
 `;
