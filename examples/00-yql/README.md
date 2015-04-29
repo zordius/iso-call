@@ -5,7 +5,8 @@ How to try this
 2. npm install
 3. npm start
 4. open http://localhost:3000/ with your browser
-5. type `show tables` then press TEST button
+5. type `show tables` then press TEST button. This is a client side isocall.request(), you may check with develop tools.
+6. open http://localhost:3000/?q=show+tables. This is a server side isocall.request().
 
 How it works
 ------------
