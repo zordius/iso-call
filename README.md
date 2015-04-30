@@ -122,4 +122,4 @@ Check our <a href="examples/02-yql">YQL example</a> to know more about isocall.r
 Use Case: deal with request by context
 --------------------------------------
 
-Checkout our <a href="examples/03-context">Context example</a> to know more context based RPC.
+Checkout our <a href="examples/03-context">Context example</a> to know more about context based RPC which can access request by `this`.
