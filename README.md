@@ -118,3 +118,8 @@ Use Case: isomorphic http request
 ---------------------------------
 
 Check our <a href="examples/02-yql">YQL example</a> to know more about isocall.request().
+
+Use Case: deal with request by context
+--------------------------------------
+
+Checkout our <a href="examples/03-context">Context example</a> to know more context based RPC.
