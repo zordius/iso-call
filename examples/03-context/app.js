@@ -24,6 +24,7 @@ ${R}
 // Server side: construct app with request, then .execute() works.
 // Client side: no request provided, but .execute() still works well.
 var app = function (req) {
+    /* eslint-disable no-underscore-dangle */
     // Keep request at _req .
     this._req = req;
 };

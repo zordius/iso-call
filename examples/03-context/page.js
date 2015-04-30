@@ -1,7 +1,7 @@
-var app = require('./app');
+var App = require('./app');
 
 module.exports = function (req, res) {
-    var APP = new app(req);
+    var APP = new App(req);
 
     APP.get(req.query.q).then(function (consoleHTML) {
         res.send(`
