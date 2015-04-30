@@ -20,6 +20,7 @@ Use <a href="https://github.com/substack/node-browserify">browserify</a> + <a hr
 ```sh
 npm install browserify aliasify --save-dev
 ```
+
 Add these into your `package.json` to enable aliasify:
 
 ```json
