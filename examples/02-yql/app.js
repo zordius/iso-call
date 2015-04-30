@@ -29,7 +29,7 @@ module.exports = {
         return yql(Q).then(inner, inner);
     },
     renderInto: function (form) {
-        this.get(form.elements.query.value).then(function (H) {
+        this.get(form.elements.q.value).then(function (H) {
             form.innerHTML = H;
         });
     }
