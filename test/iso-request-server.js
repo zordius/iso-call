@@ -21,6 +21,12 @@ describe('iso-request-server', function () {
         }
     });
 
+    it('.request() should return rejected promise when NO name provided', function (done) {
+        isoreq.request().catch(function (E) {
+            assert.deepEqual(E.message, 'iso-request-server without name!');
+        }).then(done.bind(), done);
+    });
+
     it('.request() should return rejected promise when NO url provided', function (done) {
         isoreq.request('test').catch(function (E) {
             assert.deepEqual(E.message, 'call isocall.request() on api: "test" without URL!');
