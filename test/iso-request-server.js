@@ -10,6 +10,12 @@ describe('iso-request-server', function () {
         }
     });
 
+    it('.request() should return rejected promise when NO url provided', function (done) {
+        isoreq.request('test').catch(function (E) {
+            assert.deepEqual(E.message, 'call isocall.request() on api: "test" without URL!');
+        }).then(done.bind(), done);
+    });
+
     it('should isoexe.execute() with default request RPC name', function (done) {
         sinon.stub(isoexe, 'execute').returns(Promise.resolve());
 
