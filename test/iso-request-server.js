@@ -1,10 +1,21 @@
 var assert = require('chai').assert;
 var isoreq = require('../lib/iso-request-server');
 var isoexe = require('../lib/iso-execute-server');
+var isocfg = require('../lib/iso-config');
 var sinon = require('sinon');
+var nock = require('nock');
 
 describe('iso-request-server', function () {
+    before(function () {
+        nock.disableNetConnect();
+    });
+
+    after(function () {
+        nock.enableNetConnect();
+    });
+
     afterEach(function () {
+        nock.cleanAll();
         if (isoexe.execute.restore) {
             isoexe.execute.restore();
         }
@@ -24,6 +35,15 @@ describe('iso-request-server', function () {
                 '_DEFAULT_ISO_REQUEST_RPC_',
                 {name: 'test', cfg: undefined}
             ]);
+        }).then(done.bind(), done);
+    });
+
+    it('should isoreq() then receive result', function (done) {
+        nock('http://abc').persist().get('/?a=b').reply(200, 'OK!');
+        isocfg.addConfigs({test: 'http://abc/'});
+
+        isoreq.request('test', {qs: {a: 'b'}}).then(function (R) {
+            assert.equal(R.body, 'OK!');
         }).then(done.bind(), done);
     });
 });
