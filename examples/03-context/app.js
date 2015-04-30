@@ -21,7 +21,10 @@ ${R}
 `;
 };
 
+// Server side: construct app with request, then .execute() works.
+// Client side: no request provided, but .execute() still works well.
 var app = function (req) {
+    // Keep request at _req .
     this._req = req;
 };
 
@@ -37,6 +40,7 @@ app.prototype = {
             form.innerHTML = H;
         });
     },
+    // provide APP.execute() to deal with request <=> this
     execute: function () {
         return isocall.execute.apply(this._req, arguments);
     }

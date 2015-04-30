@@ -5,8 +5,8 @@ How to try this
 2. npm install
 3. npm start
 4. open http://localhost:3000/ with your browser
-5. type `header` then press TEST button. This is a client side isocall.execute(), you may check with develop tools.
-6. open http://localhost:3000/?q=header. This is a server side isocall.execute().
+5. type `header` then press TEST button. This is a client side app.execute(), you may check with develop tools.
+6. open http://localhost:3000/?q=header. This is a server side app.execute().
 
 How it works
 ------------
