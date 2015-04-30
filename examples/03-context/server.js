@@ -22,8 +22,8 @@ isocall.setupMiddleware(app);
     ]
   }
 */
-app.use('/js/CMDconsole.js', browserify('./app.js', {
-    standalone: 'CMDConsole'
+app.use('/js/REQConsole.js', browserify('./app.js', {
+    standalone: 'REQConsole'
 }));
 
 // Serve the page

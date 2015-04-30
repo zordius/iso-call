@@ -15,22 +15,31 @@ var inner = function (D) {
 var template = function (D) {
     var R = inner(D);
     return `
-<form onsubmit="CMDConsole.renderInto(this);return false">
+<form onsubmit="(new REQConsole()).renderInto(this);return false">
 ${R}
 </form>
 `;
 };
 
-module.exports = {
+var app = function (req) {
+    this._req = req;
+};
+
+app.prototype = {
     get: function (Q) {
-        return isocall.execute(Q).then(template, template);
+        return this.execute(Q).then(template, template);
     },
     getInner: function (Q) {
-        return isocall.execute(Q).then(inner, inner);
+        return this.execute(Q).then(inner, inner);
     },
     renderInto: function (form) {
         this.get(form.elements.q.value).then(function (H) {
             form.innerHTML = H;
         });
+    },
+    execute: function () {
+        return isocall.execute.apply(this._req, arguments);
     }
 };
+
+module.exports = app;

@@ -1,7 +1,9 @@
 var app = require('./app');
 
 module.exports = function (req, res) {
-    app.get(req.query.q).then(function (consoleHTML) {
+    var APP = new app(req);
+
+    APP.get(req.query.q).then(function (consoleHTML) {
         res.send(`
 <!DOCTYPE html>
 <html>
@@ -17,7 +19,7 @@ textarea {width: 100%;height:400px}
 <body>
 Welcome to the SHELL Console!
 ${consoleHTML}
-<script src="/js/CMDConsole.js"></script>
+<script src="/js/REQConsole.js"></script>
 </body>
 </html>
 `
