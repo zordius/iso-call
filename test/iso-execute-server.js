@@ -102,7 +102,7 @@ describe('iso-execute-server', function () {
             };
             var res = {
                 send: function (body) {
-                    assert.equal(body, 'BODY!');
+                    assert.deepEqual(body, {rpc: 'BODY!'});
                     done();
                 }
             };

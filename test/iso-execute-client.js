@@ -28,7 +28,7 @@ describe('iso-execute-client', function () {
     });
 
     it('will make PUT request to baseURL', function (done) {
-        nock(baseHOST).persist().put('/test').reply(200, {msg: 'OK!'});
+        nock(baseHOST).persist().put('/test').reply(200, {rpc: {msg: 'OK!'}});
 
         isoexe.execute('test').then(function (R) {
             assert.deepEqual(R, {msg: 'OK!'});
