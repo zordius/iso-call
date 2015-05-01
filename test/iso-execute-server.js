@@ -12,6 +12,10 @@ var getMiddleware = function () {
     isoexe.setupMiddleware({
         put: function (path, parser, M) {
             middleware = M;
+        },
+        enable: function () {
+        },
+        enabled: function () {
         }
     });
     return middleware;
@@ -68,7 +72,9 @@ describe('iso-execute-server', function () {
     describe('.setupMiddleware()', function () {
         it('will setup app with correct route url', function () {
             var app = {
-                put: sinon.spy()
+                put: sinon.spy(),
+                enable: sinon.spy(),
+                enabled: sinon.spy()
             };
 
             isocall.setBaseURL('haha');
