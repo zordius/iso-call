@@ -66,7 +66,7 @@ You may also enable polyfill for client side by including any polyfill web servi
 
 **2. Setup your API**
 
-You should setup all your API or RPC list only for server.
+You should setup all your API or RPC list only for server, the best place is your server.js.
 
 ```javascript
 isocall = require('iso-call');
