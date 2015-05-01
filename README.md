@@ -100,6 +100,19 @@ isocall.request('apiName', requestParams).then(function (R) {
 });
 ```
 
+How it works?
+-------------
+
+**iso.execute() at Server side**
+iso.execute() -> getRPCFuncByName -> execute -> return Promise
+
+**iso.execute() at Client side**
+iso.execute() -> call wraped URL -> middleware -> getRPCFuncByName -> execute -> respone json -> receive result -> return Promise
+
+**iso.request() at both Server and Client side**
+
+iso.request() -> iso.execute(preDefinedRPCName, wrapedOpt)
+
 Use Case: isomorphic RPC
 ------------------------
 
