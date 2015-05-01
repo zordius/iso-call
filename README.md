@@ -37,12 +37,25 @@ Usage
 You should enable Promise and Object.assign() before using `iso-call` in your application for both server and client.
 
 ```javascript
+// For server side
 // A. BABEL way: Init ES6 environments for require()
 require('babel/register')();
 
 // B. polyfill way: auto polyfill Promise and Object.assign()
 require('object.assign').shim();
 require('es6-promise').polyfill();
+```
+
+```javascript
+// For client side
+// A. BABEL way: use babelify polyfill
+require('babelify/polyfill');
+
+// B. Use iso-call polyfill service
+require('iso-call/polyfill');
+
+// C. include any polyfill wer service in your HTML before loading bundle
+<script src="https://cdn.polyfill.io/v1/polyfill.min.js"></script>
 ```
 
 **2. Setup your API**
