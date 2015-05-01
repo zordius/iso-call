@@ -10,7 +10,7 @@ Installation
 
 **Server**
 ```sh
-npm install iso-call
+npm install iso-call express body-parser --save
 ```
 
 **Client**
