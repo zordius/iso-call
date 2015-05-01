@@ -29,15 +29,6 @@ Add these into your `package.json` to enable aliasify:
   }
 ```
 
-You may also use do more tricks with proper aliasify settings:
-
-* hide api end points from users
-* handle server side only logic
-* handle client side only logic
-* reduce bundle size
-
-(TODO: add examples for these use case)
-
 Usage
 -----
 
@@ -114,12 +105,32 @@ Use Case: isomorphic RPC
 
 Check our <a href="examples/01-shell">shell example</a> to know more about isocall.execute().
 
+With isocall.execute() a RPC you can:
+
+* Trigger server side only process with RPC then get the result from server or client side.
+* Place specific logic inside RPC to hide it from users.
+* Call API inside RPC to hide API endpoint from users.
+* Do input validation at server side to ensure security.
+* Reduce client side JavaScript size because RPC codes will not be bundled.
+
 Use Case: isomorphic http request
 ---------------------------------
 
 Check our <a href="examples/02-yql">YQL example</a> to know more about isocall.request().
 
+With isocall.request() an API you can:
+
+* Trigger an API by name from both server side and client.
+* Using consist options from <a href="https://github.com/request/request">request</a>.
+* Do not need to worry about cross domain request issue.
+
 Use Case: deal with request by context
 --------------------------------------
 
 Checkout our <a href="examples/03-context">Context example</a> to know more about context based RPC which can access request by `this`.
+
+With contexted isocall you can:
+
+* Access <a href="http://expressjs.com/4x/api.html#req">express request<a/> by `this` inside the RPC.
+* Do request based logic inside a RPC.
+* Get required cookie or headers from the request then pass to an API.
