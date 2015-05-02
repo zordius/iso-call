@@ -57,7 +57,7 @@
   "aliasify": {
     "aliases": {
       "request": "browser-request",
-      "iso-call/polyfill": "babel-core/polyfill"
+      "iso-call/polyfill": "babelify/polyfill"
     },
     "global": true
   },
