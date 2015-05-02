@@ -35,7 +35,8 @@ B. Use <a href="https://github.com/webpack/webpack">webpack</a> to bundle your a
 npm install webpack --save-dev
 ```
 
-Add these into your `webpack.config.js` to make iso-call works properly:```javascript
+Add these into your `webpack.config.js` to make iso-call works properly:
+```javascript
     resolve: {
         alias: {
             "iso-call/polyfill": "babel-core/polyfill",
