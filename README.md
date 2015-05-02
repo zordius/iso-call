@@ -15,7 +15,7 @@ npm install iso-call express body-parser --save
 
 **Client**
 
-Use <a href="https://github.com/substack/node-browserify">browserify</a> + <a href="https://github.com/benbria/aliasify">aliasify</a> to bundle your application and iso-call for browser:
+A. Use <a href="https://github.com/substack/node-browserify">browserify</a> + <a href="https://github.com/benbria/aliasify">aliasify</a> to bundle your application and iso-call for browser:
 
 ```sh
 npm install browserify aliasify --save-dev
@@ -27,6 +27,21 @@ Add these into your `package.json` to enable aliasify:
   "browserify": {
     "transform": ["aliasify"]
   }
+```
+
+B. Use <a href="https://github.com/webpack/webpack">webpack</a> to bundle your applicatoin and iso-call for browser:
+
+```sh
+npm install webpack --save-dev
+```
+
+Add these into your `webpack.config.js` to make iso-call works properly:```javascript
+    resolve: {
+        alias: {
+            "iso-call/polyfill": "babel-core/polyfill",
+            request: 'browser-request'
+        }
+    }
 ```
 
 Usage
