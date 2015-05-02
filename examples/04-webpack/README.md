@@ -11,6 +11,6 @@ How to try this
 How it works
 ------------
 
-* This DEMO does same with <a href="../01-shell">01-shell</a> example, but we using <a href="https://github.com/webpack/webpack">webpack</a> as bundler here.
+* This example does same with <a href="../01-shell">01-shell</a>, but we bundle JavaScript file with <a href="https://github.com/webpack/webpack">webpack</a>.
 * <a href="server.js">server.js</a> creates an Express Server, it serves client side bundle file at /js/CMDConsle.js with <a href="https://github.com/webpack/webpack-dev-middleware">webpack-dev-middleware</a>
 * check <a href="webpack.config.js">webpack.config.js</a> for required webpack settings.

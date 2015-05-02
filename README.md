@@ -150,7 +150,7 @@ How it works?
 Use Case: isomorphic RPC
 ------------------------
 
-Check our <a href="examples/01-shell">shell example</a> to know more about isocall.execute().
+Check our <a href="examples/01-shell">shell example</a> to know more about isocall.execute(). There is <a href="examples/04-webpack">another example</a> works by webpack.
 
 With isocall.execute() a RPC you can:
 
