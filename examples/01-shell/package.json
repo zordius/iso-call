@@ -10,6 +10,7 @@
   "dependencies": {
     "iso-call": "*",
     "babel": "5.1.11",
+    "body-parser": "1.12.3",
     "express": "4.12.3"
   },
   "devDependencies": {
