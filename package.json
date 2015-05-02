@@ -47,15 +47,17 @@
     "mocha": "2.2.4",
     "sinon": "1.14.1"
   },
+  "browser": {
+    "./lib/iso-request-server.js": "./lib/iso-request-client.js",
+    "./lib/iso-execute-server.js": "./lib/iso-execute-client.js"
+  },
   "browserify": {
     "transform": ["aliasify"]
   },
   "aliasify": {
     "aliases": {
-      "./iso-request-server": "./lib/iso-request-client",
-      "./iso-execute-server": "./lib/iso-execute-client",
       "request": "browser-request",
-      "iso-call/polyfill": "babelify/polyfill"
+      "iso-call/polyfill": "babel-core/polyfill"
     },
     "global": true
   },

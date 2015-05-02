@@ -1,0 +1,26 @@
+{
+  "name": "iso-call-example",
+  "version": "0.0.1",
+  "description": "A demo project for iso-call",
+  "author": "Zordius <zordius@yahoo-inc.com>",
+  "main": "server.js",
+  "scripts": {
+    "start": "gulp"
+  },
+  "dependencies": {
+    "iso-call": "*",
+    "babel": "5.1.11",
+    "body-parser": "1.12.3",
+    "express": "4.12.3"
+  },
+  "devDependencies": {
+    "webpack": "1.8.11",
+    "webpack-dev-middleware": "1.0.11",
+    "babel-loader": "5.0.0",
+    "browser-request": "0.3.3",
+    "babel-runtime": "4.7.12",
+    "nodemon": "1.2.1",
+    "gulp": "3.8.9",
+    "gulp-util": "3.0.4"
+  }
+}
