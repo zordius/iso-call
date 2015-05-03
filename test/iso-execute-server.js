@@ -81,6 +81,18 @@ describe('iso-execute-server', function () {
             isoexe.setupMiddleware(app);
             assert.equal(app.put.getCall(0).args[0], 'haha:name');
         });
+
+        it('will throw when already mounted', function () {
+            var app = {
+                put: sinon.spy(),
+                enable: sinon.spy(),
+                enabled: sinon.stub().returns(true)
+            };
+
+            assert.throws(function () {
+                isoexe.setupMiddleware(app);
+            }, 'Can not .setupMiddleware() to an express instance again!');
+        });
     });
 
     describe('middleware', function () {
