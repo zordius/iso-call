@@ -82,7 +82,7 @@ You may also enable polyfill for client side by including any polyfill web servi
 
 **2. Setup your API**
 
-You should setup all your API or RPC list only for server, the best place is your server.js.
+You should setup all your API or RPC list only for server, the best place is do it inside your server.js.
 
 ```javascript
 isocall = require('iso-call');
@@ -113,7 +113,7 @@ isocall.setupMiddleware(app);
 
 **4. Call API or RPC!**
 
-Now you can do isomprphic RPC!!
+Now you can call RPC isomorphically!!
 
 ```javascript
 // Works on both client and server side!
@@ -181,3 +181,9 @@ With contexted isocall you can:
 * Access <a href="http://expressjs.com/4x/api.html#req">express request<a/> by `this` inside the RPC.
 * Do request based logic inside a RPC.
 * Get required cookie or headers from the request then pass to an API.
+
+NOTICE
+------
+
+* We use `JSON.stringify()` to transfer `isocall.execute()` result from server side to client side, so you can not receive data other than <a href="http://www.tutorialspoint.com/json/json_data_types.htm">standard JSON data types</a>. (TODO: support customized JSON serializer)
+* The `result.response.body` object from `isocall.request()` will be removed from `result.response` to save transmission size; in most case it is same with `result.body`.
