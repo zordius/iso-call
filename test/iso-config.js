@@ -1,5 +1,7 @@
 var assert = require('chai').assert;
 var isocfg = require('../lib/iso-config');
+var sinon = require('sinon');
+var isoexe = require('../lib/iso-execute-server');
 
 describe('iso-config', function () {
     describe('.addConfigs()', function () {
@@ -42,8 +44,18 @@ describe('iso-config', function () {
         assert.deepEqual(isocfg.getBaseURL(), '/_isoreq_/');
     });
 
-    it('.setBaseURL() should return baseURL', function () {
+    it('.setBaseURL() should set baseURL correctly', function () {
         isocfg.setBaseURL('/_lalala_/');
         assert.deepEqual(isocfg.getBaseURL(), '/_lalala_/');
+    });
+
+    it('.setBaseURL() should warn when after .setupMiddleware', function () {
+        sinon.spy(console, 'warn');
+        sinon.stub(isoexe, 'middlewareMounted').returns(true);
+
+        isocfg.setBaseURL();
+        assert(console.warn.getCall(0).args[0], '.setBaseURL() after .setupMiddleware() , this may cause client side call to wrong endpoint.');
+        console.warn.restore();
+        isoexe.middlewareMounted.restore();
     });
 });
