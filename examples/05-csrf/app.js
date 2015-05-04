@@ -6,6 +6,7 @@ var inner = function (D) {
     return `
 <input type="text" name="q" value="" />
 <input type="submit" value="TEST" />
+<input type="submit" value="RESET CSRF" onclick="(new REQConsole()).rmCsrfToken()" />
 <hr/>
 <h3>Result:</h3>
 <textarea>${D}</textarea>
@@ -44,6 +45,10 @@ app.prototype = {
     // provide APP.execute() to deal with request <=> this
     execute: function () {
         return isocall.execute.apply(this._req, arguments);
+    },
+    rmCsrfToken: function () {
+        /* eslint-disable no-undef */
+        document.cookie = "XSRF-TOKEN=";
     }
 };
 

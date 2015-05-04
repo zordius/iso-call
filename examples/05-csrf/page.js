@@ -1,9 +1,11 @@
 var App = require('./app');
 
 module.exports = function (req, res) {
-    var APP = new App(req);
-
+    var csrf = req.csrfToken(),
+        APP = new App(req, csrf);
+    res.cookie("XSRF-TOKEN", csrf);
     APP.get(req.query.q).then(function (consoleHTML) {
+        //res.set('csrf-token', csrfToken);
         res.send(`
 <!DOCTYPE html>
 <html>
@@ -22,8 +24,7 @@ ${consoleHTML}
 <script src="/js/REQConsole.js"></script>
 </body>
 </html>
-`
-        );
+`);
     }).catch(function (E) {
         console.warn(E);
     });

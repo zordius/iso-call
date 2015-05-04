@@ -1,16 +1,23 @@
 // Init ES6 environments for .require()
 require('babel/register')();
 
-var express = require('express');
-var isocall = require('iso-call');
-var browserify = require('browserify-middleware');
-var app = express();
+var express = require('express'),
+    isocall = require('iso-call'),
+    browserify = require('browserify-middleware'),
+    csrf = require('csurf'),
+    cookieParser = require('cookie-parser');
+
+var app = express(),
+    csrfOptions = {
+        cookie: true,
+        value: function (req) {
+                   return req.cookies['XSRF-TOKEN'];
+               }
+    };
 
 // Setup rpc
 require('./rpclist');
 
-// Mount yql iso-call middleware to the express
-isocall.setupMiddleware(app);
 
 // Serve the bundled app
 // aliasify is required transform to ensure iso-call work properly
@@ -25,6 +32,24 @@ isocall.setupMiddleware(app);
 app.use('/js/REQConsole.js', browserify('./app.js', {
     standalone: 'REQConsole'
 }));
+
+app.use(cookieParser());
+app.use(csrf(csrfOptions));
+
+// csrf error handler
+app.use(function (err, req, res, next) {
+    if (err.code !== 'EBADCSRFTOKEN') {
+        return next(err);
+    }
+
+    // handle CSRF token errors here
+    res.status(403);
+    res.send({rpc: '403 forbidden for no csrf token!'});
+
+});
+
+// Mount iso-call middleware to the express
+isocall.setupMiddleware(app);
 
 // Serve the page
 app.use(require('./page'));

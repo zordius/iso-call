@@ -16,14 +16,17 @@ How it works
   * serve client side bundle file at /js/REQConsle.js with <a href="https://github.com/ForbesLindesay/browserify-middleware">browserify-middleware</a>
   * serve iso-call default proxy at /_isoreq_/ for your RPC or API
   * serve a <a href="page.js">REQUEST console page</a> for any other URL requests.
+  * utilize <a href="https://github.com/expressjs/csurf">npm:csurf</a> to perform <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery" >csrf</a> protection on whole site, including RPC/API access.
 * <a href="page.js">page.js</a> creates an Express middleware:
   * using <a href="http://babeljs.io/docs/learn-es6/">ES6</a> template string syntax
   * using <a href="app.js">app.js</a> to create an app instance to keep the request context, then .get() REQUEST console HTML then render whole page
 * <a href="app.js">app.js</a> exports an application contructor with these API:
+  * set csrf token as response cookie by `res.cookie("XSRF-TOKEN", csrf)`
   * `execute()`: context based execute which can access request by `this`
   * `get(cmd)`: return a promise of command result inside console HTML
   * `getInner(cmd)`: return a promise of command result inside console innerHTML
   * `renderInto(form)`: use `this.execute()` to get command result and render the form
+  * `rmCsrfToken()`: remove csrf token cookie `XSRF-TOKEN`. After doing this, the rpc access will prompt 403 forbidden.
 * <a href="rpclist.js">rpclist.js</a> defined all RPC:
   * It is not `require()` by app.js, so the content will not be bundled to client side.
   * `header` command is provided by request.headers
