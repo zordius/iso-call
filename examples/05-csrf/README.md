@@ -21,12 +21,22 @@ How it works
   * using <a href="http://babeljs.io/docs/learn-es6/">ES6</a> template string syntax
   * using <a href="app.js">app.js</a> to create an app instance to keep the request context, then .get() REQUEST console HTML then render whole page
 * <a href="app.js">app.js</a> exports an application contructor with these API:
-  * set csrf token as response cookie by `res.cookie("XSRF-TOKEN", csrf)`
   * `execute()`: context based execute which can access request by `this`
   * `get(cmd)`: return a promise of command result inside console HTML
   * `getInner(cmd)`: return a promise of command result inside console innerHTML
   * `renderInto(form)`: use `this.execute()` to get command result and render the form
-  * `rmCsrfToken()`: remove csrf token cookie `XSRF-TOKEN`. After doing this, the rpc access will prompt 403 forbidden.
 * <a href="rpclist.js">rpclist.js</a> defined all RPC:
   * It is not `require()` by app.js, so the content will not be bundled to client side.
   * `header` command is provided by request.headers
+
+More about csrf protection
+------
+* On server side `app.js`, the token is delivered to client as a form hidden value `<input type="hidden" name="_csrf" value="${csrf}" />`
+* On client side `app.js`, rpc is called along with the payload containing csrf token `{csrfToken: csrf}`
+* On server side `server.js`csurf middleware , we implement a customized value extraction function
+```javascript
+value: function (req) {
+    return req.body.csrfToken || '';
+}
+```
+to extract token from rpc payload with parsed payload in `req.body` for token verification.

@@ -3,9 +3,7 @@ var App = require('./app');
 module.exports = function (req, res) {
     var csrf = req.csrfToken(),
         APP = new App(req, csrf);
-    res.cookie("XSRF-TOKEN", csrf);
     APP.get(req.query.q).then(function (consoleHTML) {
-        //res.set('csrf-token', csrfToken);
         res.send(`
 <!DOCTYPE html>
 <html>

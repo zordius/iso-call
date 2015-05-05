@@ -9,9 +9,9 @@ var express = require('express'),
 
 var app = express(),
     csrfOptions = {
-        cookie: true,
+        cookie: {key: '_secret'},
         value: function (req) {
-                   return req.cookies['XSRF-TOKEN'];
+                   return req.body.csrfToken || '';
                }
     };
 
@@ -34,6 +34,7 @@ app.use('/js/REQConsole.js', browserify('./app.js', {
 }));
 
 app.use(cookieParser());
+app.use(require('body-parser').json({strict: false}));
 app.use(csrf(csrfOptions));
 
 // csrf error handler
