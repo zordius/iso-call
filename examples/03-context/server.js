@@ -9,7 +9,7 @@ var app = express();
 // Setup rpc
 require('./rpclist');
 
-// Mount yql iso-call middleware to the express
+// Mount iso-call middleware to the express
 isocall.setupMiddleware(app);
 
 // Serve the bundled app
