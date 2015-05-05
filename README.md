@@ -97,6 +97,12 @@ isocall.addConfigs({
     connectdb: function (params) {
         return mysqlPromise(params.host, params.port);
     }
+
+    // Also support RPC function with multiple parameters
+    connectdb: function (host, port) {
+        return mysqlPromise(host, port);
+    }
+
 });
 ```
 
@@ -122,6 +128,14 @@ isocall.execute('rpcName', rpcParams).then(function (R) {
 }).catch(function (E) {
     // Failed , E = error
 });
+
+// Support with multiple parameters rpc function
+isocall.execute('rpcName', rpcParam1, rpcParam2, ...).then(function (R) {
+    // Success, R = result
+}).catch(function (E) {
+    // Failed , E = error
+});
+
 ```
 
 Or make isomorphic http request!!
