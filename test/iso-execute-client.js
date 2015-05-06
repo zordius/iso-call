@@ -45,7 +45,7 @@ describe('iso-execute-client', function () {
         .put('/test')
         .reply(200, {rpc: {msg: 'OK!'}});
 
-        isoexe.execute('test', 123, 456, 'abc').then(function (R) {
+        isoexe.execute('test', 123, 456, 'abc').then(function () {
             assert.deepEqual(body, '[123,456,"abc"]');
         }).then(done.bind(), done);
     });
