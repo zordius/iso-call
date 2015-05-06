@@ -110,15 +110,16 @@ describe('iso-execute-server', function () {
         it('will run execute() with route name and request body', function (done) {
             var req = {
                 params: {name: 'test'},
-                body: 'OK!'
+                body: ['OK!', 'GOOD!']
             };
             var res = {
                 send: function () {}
             };
 
             isocall.addConfigs({
-                test: function (body) {
-                    assert.equal(body, 'OK!');
+                test: function (a, b) {
+                    assert.equal(a, 'OK!');
+                    assert.equal(b, 'GOOD!');
                     done();
                 }
             });
