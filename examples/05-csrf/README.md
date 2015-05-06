@@ -36,7 +36,8 @@ More about csrf protection
 * On server side `server.js`csurf middleware , we implement a customized value extraction function
 ```javascript
 value: function (req) {
-    return req.body.csrfToken || '';
+    // req.body will like: [ { csrfToken: 'ABCDEFGH' } ]
+    return req.body[0].csrfToken || '';
 }
 ```
 to extract token from rpc payload with parsed payload in `req.body` for token verification.
