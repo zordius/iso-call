@@ -186,4 +186,4 @@ NOTICE
 ------
 
 * We use `JSON.stringify()` to transfer `isocall.execute()` result from server side to client side, so you can not receive data other than <a href="http://www.tutorialspoint.com/json/json_data_types.htm">standard JSON data types</a>. (TODO: support customized JSON serializer)
-* The `result.response.body` object from `isocall.request()` will be removed from `result.response` to save transmission size; in most case it is same with `result.body`.
+* The `result.response.body` object from `isocall.request()` will be removed from `result.response` to reduce transmission size; in most case it is same with `result.body`.
