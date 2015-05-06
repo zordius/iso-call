@@ -182,6 +182,11 @@ With contexted isocall you can:
 * Do request based logic inside a RPC.
 * Get required cookie or headers from the request then pass to an API.
 
+Use Case: prevent CSRF
+----------------------
+
+Checkout our <a href="examples/05-csrf">CSRF example</a> to know more about how to prevent <a href="http://en.wikipedia.org/wiki/Cross-site_request_forgery">Cross-Site Request Forgery</a>.
+
 NOTICE
 ------
 
