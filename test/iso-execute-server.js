@@ -56,6 +56,17 @@ describe('iso-execute-server', function () {
                 assert.equal(R, 'OK!');
             }).then(done.bind(), done);
         });
+        it('will pass arguments into RPC', function (done) {
+            isocall.addConfigs({
+                testRpc: function (a, b, c) {
+                    return [c, b, a].join(',');
+                }
+            });
+
+            isoexe.execute('testRpc', 1, 2, 3).then(function (R) {
+                assert.equal(R, '3,2,1');
+            }).then(done.bind(), done);
+        });
         it('will return rejected Promise when execute error', function (done) {
             isocall.addConfigs({
                 testRpc: function () {
