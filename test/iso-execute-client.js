@@ -34,4 +34,19 @@ describe('iso-execute-client', function () {
             assert.deepEqual(R, {msg: 'OK!'});
         }).then(done.bind(), done);
     });
+
+    it('will put arguments into request body', function (done) {
+        var body = null;
+        nock(baseHOST).persist()
+        .filteringRequestBody(function (B) {
+            body = B;
+            return true;
+        })
+        .put('/test')
+        .reply(200, {rpc: {msg: 'OK!'}});
+
+        isoexe.execute('test', 123, 456, 'abc').then(function (R) {
+            assert.deepEqual(body, '[123,456,"abc"]');
+        }).then(done.bind(), done);
+    });
 });
