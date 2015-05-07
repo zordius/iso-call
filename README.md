@@ -94,13 +94,13 @@ isocall.addConfigs({
     graph: 'https://graph.facebook.com/v2.3/641060562',
 
     // RPC as {name: function} list
-    connectdb: function (params) {
+    getSqlData: function (params) {
         return mysqlPromise(params.host, params.port);
     }
 
     // Also support RPC function with multiple parameters
-    connectdb: function (host, port) {
-        return mysqlPromise(host, port);
+    getSQL: function (host, port, sql) {
+        return mysqlPromise(host, port, sql);
     }
 
 });
