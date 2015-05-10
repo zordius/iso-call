@@ -192,7 +192,7 @@ Checkout our <a href="examples/03-context">Context example</a> to know more abou
 
 With contexted isocall you can:
 
-* Access <a href="http://expressjs.com/4x/api.html#req">express request<a/> by `this` inside the RPC.
+* Access <a href="http://expressjs.com/4x/api.html#req">express request</a> by `this` inside the RPC.
 * Do request based logic inside a RPC.
 * Get required cookie or headers from the request then pass to an API.
 
