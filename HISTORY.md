@@ -1,6 +1,13 @@
 Release History
 ===============
 
+0.0.4
+https://github.com/zordius/iso-call/releases/tag/v0.0.3
+
+**2015-05-25 add alias of request-core**
+
+* Add new shortcut `iso-call/request` alias to `iso-call/lib/iso-request-core`
+
 0.0.3
 -----
 https://github.com/zordius/iso-call/releases/tag/v0.0.3

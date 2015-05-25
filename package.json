@@ -1,6 +1,6 @@
 {
   "name": "iso-call",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Isomorphic api call for any nodejs/express application",
   "author": "Zordius <zordius@yahoo-inc.com>",
   "contributors": [
