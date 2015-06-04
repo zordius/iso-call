@@ -2,7 +2,7 @@ Release History
 ===============
 
 0.0.4
-https://github.com/zordius/iso-call/releases/tag/v0.0.3
+https://github.com/zordius/iso-call/releases/tag/v0.0.4
 
 **2015-05-25 add alias of request-core**
 
