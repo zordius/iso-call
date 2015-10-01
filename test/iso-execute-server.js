@@ -152,10 +152,12 @@ describe('iso-execute-server', function () {
             var res = {
                 status: function (code) {
                     assert.equal(code, 500);
-                    done();
                     return res;
                 },
-                send: function () {}
+                send: function (data) {
+                    assert.equal(data.error, 'ignore this: console.warn(E.stack)');
+                    done();
+                }
             };
 
             isocall.addConfigs({
@@ -166,5 +168,29 @@ describe('iso-execute-server', function () {
 
             getMiddleware()(req, res);
         });
+        it('will res.status(500) when Promise.reject()', function (done) {
+            var req = {
+                params: {name: 'test'}
+            };
+            var res = {
+                status: function (code) {
+                    assert.equal(code, 500);
+                    return res;
+                },
+                send: function (data) {
+                    assert.equal(data.error, 'ignore this: console.warn(E.stack)');
+                    done();
+                }
+            };
+
+            isocall.addConfigs({
+                test: function () {
+                    return Promise.reject({message: 'Error!', stack: 'ignore this: console.warn(E.stack)'});
+                }
+            });
+
+            getMiddleware()(req, res);
+        });
+
     });
 });

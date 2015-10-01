@@ -33,7 +33,7 @@
     "request": "2.55.0"
   },
   "devDependencies": {
-    "babel-eslint": "3.0.1",
+    "babel-eslint": "4.1.3",
     "eslint": "0.20.0",
     "nock": "1.6.1",
     "browser-request": "0.3.3",
