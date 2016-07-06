@@ -52,11 +52,11 @@ Usage
 
 You should enable Promise and Object.assign() before using `iso-call` in your application for both server and client.
 
-*A. BABEL way: when you write ES6 scripts*
+*A. BABEL way: when you write ES2015 scripts*
 
 ```javascript
 // For server side (in your main server script)
-// Init ES6 environments for require()
+// Init ES2015 environments for require()
 require('babel/register')();
 
 // For client side (in your main client script)
