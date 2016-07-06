@@ -30,14 +30,14 @@
   },
   "main": "index.js",
   "dependencies": {
-    "request": "2.55.0"
+    "body-parser": "^1.15.2",
+    "request": "2.72.0"
   },
   "devDependencies": {
     "babel-eslint": "3.0.1",
     "eslint": "0.20.0",
     "nock": "1.6.1",
     "browser-request": "0.3.3",
-    "body-parser": "1.12.3",
     "babel": "5.1.11",
     "bluebird": "2.9.24",
     "gulp": "3.8.11",
@@ -52,7 +52,9 @@
     "./lib/iso-execute-server.js": "./lib/iso-execute-client.js"
   },
   "browserify": {
-    "transform": ["aliasify"]
+    "transform": [
+      "aliasify"
+    ]
   },
   "aliasify": {
     "aliases": {
@@ -82,8 +84,14 @@
     "rules": {
       "yoda": "always",
       "strict": 0,
-      "dot-notation": [{"allowKeywords": false}],
-      "quotes": ["single"]
+      "dot-notation": [
+        {
+          "allowKeywords": false
+        }
+      ],
+      "quotes": [
+        "single"
+      ]
     }
   }
 }

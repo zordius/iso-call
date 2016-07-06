@@ -1,7 +1,17 @@
 Release History
 ===============
 
+0.0.5
+-----
+https://github.com/zordius/iso-call/releases/tag/v0.0.5
+
+**2016-07-06 update dependency**
+
+* move `body-parser` from devDependencies to dependencies
+* update `request` version
+
 0.0.4
+-----
 https://github.com/zordius/iso-call/releases/tag/v0.0.4
 
 **2015-05-25 add alias of request-core**
