@@ -19,4 +19,4 @@ fi
 
 # push coverage to codeclimate
 npm install codeclimate-test-reporter
-node_modules/.bin/codeclimate < coverage/lcov.info
+node_modules/.bin/codeclimate-test-reporter <coverage/lcov.info
