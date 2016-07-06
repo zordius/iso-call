@@ -11,8 +11,8 @@ var app = express(),
     csrfOptions = {
         cookie: {key: '_secret'},
         value: function (req) {
-                   return req.body[0].csrfToken || '';
-               }
+            return req.body[0].csrfToken || '';
+        }
     };
 
 // Setup rpc
