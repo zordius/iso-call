@@ -5,7 +5,7 @@
 
   "env": {
     "node": true,         // Node.js global variables and Node.js-specific rules.
-    "mocha": true,        // adds all of the Mocha testing global variables.
+    "jest": true,         // adds all of the Mocha testing global variables.
     "es6": true           // enable all ECMAScript 6 features except for modules.
   },
 
