@@ -57,7 +57,7 @@ You should enable Promise and Object.assign() before using `iso-call` in your ap
 ```javascript
 // For server side (in your main server script)
 // Init ES2015 environments for require()
-require('babel/register')();
+require('babel-core/register')();
 
 // For client side (in your main client script)
 // use iso-call polyfill wrapper. require babelify

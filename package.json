@@ -30,22 +30,22 @@
   },
   "main": "index.js",
   "dependencies": {
-    "body-parser": "^1.15.2",
-    "request": "2.72.0"
+    "body-parser": "^1.18.2",
+    "request": "2.83.0"
   },
   "devDependencies": {
-    "babel-eslint": "6.1.0",
-    "eslint": "2.13.1",
-    "nock": "1.6.1",
+    "babel-eslint": "8.0.3",
+    "eslint": "4.12.1",
+    "nock": "9.1.4",
     "browser-request": "0.3.3",
-    "babel": "5.1.11",
-    "bluebird": "2.9.24",
-    "gulp": "3.8.11",
-    "gulp-jscs": "1.6.0",
-    "chai": "2.2.0",
-    "istanbul": "0.3.13",
-    "mocha": "2.2.4",
-    "sinon": "1.14.1"
+    "babel-core": "6.26.0",
+    "bluebird": "3.5.1",
+    "gulp": "3.9.1",
+    "gulp-jscs": "4.0.0",
+    "chai": "4.1.2",
+    "istanbul": "0.4.5",
+    "mocha": "4.0.1",
+    "sinon": "4.1.2"
   },
   "browser": {
     "./lib/iso-request-server.js": "./lib/iso-request-client.js",
