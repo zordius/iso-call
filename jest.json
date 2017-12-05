@@ -1,0 +1,6 @@
+{
+  "setupFiles": [
+    "babel-core/register"
+  ],
+  "testMatch": ["**/test/*.js"]
+}

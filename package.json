@@ -24,8 +24,7 @@
     "RPC"
   ],
   "scripts": {
-    "test": "mocha",
-    "coverage": "istanbul cover -- _mocha",
+    "test": "jest --config ./jest.json --coverage",
     "lint": "gulp jscs;eslint ."
   },
   "main": "index.js",
@@ -34,17 +33,16 @@
     "request": "2.83.0"
   },
   "devDependencies": {
-    "babel-eslint": "8.0.3",
-    "eslint": "4.12.1",
-    "nock": "9.1.4",
-    "browser-request": "0.3.3",
     "babel-core": "6.26.0",
+    "babel-eslint": "8.0.3",
     "bluebird": "3.5.1",
+    "browser-request": "0.3.3",
+    "chai": "4.1.2",
+    "eslint": "4.12.1",
     "gulp": "github:gulpjs/gulp#4.0",
     "gulp-jscs": "4.0.0",
-    "chai": "4.1.2",
-    "istanbul": "0.4.5",
-    "mocha": "4.0.1",
+    "jest": "^21.2.1",
+    "nock": "9.1.4",
     "sinon": "4.1.2"
   },
   "browser": {

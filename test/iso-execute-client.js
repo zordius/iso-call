@@ -7,12 +7,12 @@ var baseHOST = 'http://t.e.s.t';
 var baseURL = baseHOST + '/';
 
 describe('iso-execute-client', function () {
-    before(function () {
+    beforeAll(function () {
         isocall.setBaseURL(baseURL);
         nock.disableNetConnect();
     });
 
-    after(function () {
+    afterAll(function () {
         isocall.resetBaseURL();
         nock.enableNetConnect();
     });

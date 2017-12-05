@@ -6,11 +6,11 @@ var sinon = require('sinon');
 var nock = require('nock');
 
 describe('iso-request-server', function () {
-    before(function () {
+    beforeAll(function () {
         nock.disableNetConnect();
     });
 
-    after(function () {
+    afterAll(function () {
         nock.enableNetConnect();
     });
 

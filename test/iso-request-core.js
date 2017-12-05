@@ -3,11 +3,11 @@ var isoreq = require('../lib/iso-request-core');
 var nock = require('nock');
 
 describe('iso-request-core', function () {
-    before(function () {
+    beforeAll(function () {
         nock.disableNetConnect();
     });
 
-    after(function () {
+    afterAll(function () {
         nock.enableNetConnect();
     });
 
