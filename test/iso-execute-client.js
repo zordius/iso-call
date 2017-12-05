@@ -38,12 +38,12 @@ describe('iso-execute-client', function () {
     it('will put arguments into request body', function (done) {
         var body = null;
         nock(baseHOST).persist()
-        .filteringRequestBody(function (B) {
-            body = B;
-            return true;
-        })
-        .put('/test')
-        .reply(200, {rpc: {msg: 'OK!'}});
+            .filteringRequestBody(function (B) {
+                body = B;
+                return true;
+            })
+            .put('/test')
+            .reply(200, {rpc: {msg: 'OK!'}});
 
         isoexe.execute('test', 123, 456, 'abc').then(function () {
             assert.deepEqual(body, '[123,456,"abc"]');

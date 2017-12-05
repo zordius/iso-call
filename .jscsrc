@@ -1,5 +1,4 @@
 {
-    "additionalRules": ["rules/disallow-dot-notation-for-keywords.js"],
     "fileExtensions": [".js", ".jsx"],
     "disallowMixedSpacesAndTabs": true,
     "disallowNewlineBeforeBlockStatements": true,
